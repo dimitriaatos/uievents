@@ -21,16 +21,20 @@ uiEventListener(audioContext.resume)
 ```javascript
 import {iuEventNames} from 'uievents'
 
-const audioContext = new AudioContext()
+let waitToHide
 
-const onUIEvent = event => {
-  iuEventNames.forEach(eventName => {
-    document.removeEventListener(eventName, onUIEvent, false)
-  })
-  audioContext.resume()
+const hideCursor = () => {
+  document.body.style.cursor = 'auto'
+  clearTimeout(waitToHide)
+  waitToHide = setTimeout(
+    () => {
+      document.body.style.cursor = 'none'
+    },
+    2000
+  )
 }
 
-iuEventNames.forEach(eventName => {
-  document.addEventListener(eventName, onUIEvent, false)
-})
+uiEventNames.forEach(event => {
+  document.addEventListener(event, hideCursor, false)
+}) 
 ```

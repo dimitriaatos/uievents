@@ -15,9 +15,9 @@ const uiEventListener = callback => {
     })
     callback(event)
   }
-  iuEventNames.forEach(eventName => {
+  uiEventNames.forEach(eventName => {
     document.addEventListener(eventName, onUIEvent, false)
   })
 }
 
-export default {uiEventNames, uiEventListener}
+export {uiEventNames, uiEventListener}
