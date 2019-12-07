@@ -10,7 +10,7 @@ const uiEventNames = [
 
 const uiEventListener = callback => {
   const onUIEvent = event => {
-    iuEventNames.forEach(eventName => {
+    uiEventNames.forEach(eventName => {
       document.removeEventListener(eventName, onUIEvent, false)
     })
     callback(event)
