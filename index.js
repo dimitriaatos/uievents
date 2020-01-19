@@ -1,5 +1,5 @@
 const uiEventNames = [
-  'mousemove',
+  // 'mousemove',
   'mousedown',
   'keypress',
   'DOMMouseScroll',
